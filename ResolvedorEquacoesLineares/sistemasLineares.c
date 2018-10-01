@@ -11,7 +11,7 @@ void main()
     printf("Quantas variaveis seu sistema vai ter? ");
     scanf("%i", &qtdVariaveis);
 
-    // Faz a matirz com as linhas e colunas certas
+    // Cria a matirz com as linhas e colunas certas
     criarMatriz(qtdVariaveis);
 
     // Pede as equacoes
@@ -23,6 +23,7 @@ void main()
 
 ////////////////////////////////////////////////////////////////
 
+    // Cria a matirz com as linhas e colunas certas
     void criarMatriz(int a)
     {
 
