@@ -1,9 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 void main()
 {
     int aux;
     char* nomeArquivo;
-    char* equacao;
-    int matriz[][];
+    FILE *file;
 
 ////////////////////////////////////////////////////////////////
 
@@ -16,5 +18,8 @@ void main()
 ////////////////////////////////////////////////////////////////
 
     void lerArquivo(char* a)
+    {
+
+    }
 
 }
