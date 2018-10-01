@@ -23,7 +23,7 @@ void lerArquivo(char* a)
 
     if (file)
     {
-        while (fscanf(file, "%s", equacao)!=EOF)
+        while (fscanf (file, "%s", equacao) != EOF)
             printf("%s",equacao);
 
         fclose(file);
