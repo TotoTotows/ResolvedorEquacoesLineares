@@ -8,7 +8,7 @@ void main()
 ////////////////////////////////////////////////////////////////
 
     // Pega a quantidade de variaveis do sistema
-    printf("Quantas variaveis vao ter no sistema? ");
+    printf("Qual o nome do arquivo a ser lido ? ");
     scanf("%i", &qtdVariaveis);
 
     // Cria a matirz com as linhas e colunas certas
