@@ -3,6 +3,7 @@
     int aux;
     char* nomeArquivo;
     FILE *file;
+    char* equacao;
 
 void main()
 {
@@ -18,5 +19,13 @@ void main()
 
 void lerArquivo(char* a)
 {
-     file = fopen(nomeArquivo, "r");
+    file = fopen(nomeArquivo, "r");
+
+    if (file)
+    {
+        while (fscanf(file, "%s", equacao)!=EOF)
+            printf("%s",equacao);
+
+        fclose(file);
+    }
 }
