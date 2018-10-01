@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 void main()
 {
@@ -13,6 +12,8 @@ void main()
     printf("Qual o nome do arquivo a ser lido ? ");
     scanf("%s", &nomeArquivo);
 
+    file = fopen(nomeArquivo, "r");
+
     lerArquivo(nomeArquivo);
 
 }
@@ -21,5 +22,5 @@ void main()
 
 void lerArquivo(char* a)
 {
-    file = fopen(nomeArquivo, "r");
+     //file = fopen(nomeArquivo, "r");
 }
