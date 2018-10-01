@@ -27,12 +27,14 @@ void lerArquivo(char* a)
 
 ////////////////////////////////////////////////////////////////
 
+    printf("%s\n", *a);
+
     file = fopen("teste.txt", "r");
 
     if (file)
     {
         while (fscanf (file, "%s", c) != EOF)
-            printf("%s", c);
+            printf("%s\n", c);
 
         fclose(file);
     }
