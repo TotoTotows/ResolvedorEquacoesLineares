@@ -17,13 +17,19 @@ void main()
 
 ////////////////////////////////////////////////////////////////
 
+// Le o arquivo e pega os valores das equacoes
 void lerArquivo(char* a)
 {
-    file = fopen(nomeArquivo, "r");
+    // Apenas para que o EOF funcione
+    char c[999];
+
+////////////////////////////////////////////////////////////////
+
+    file = fopen("teste.txt", "r");
 
     if (file)
     {
-        while (fscanf (file, "%s", equacao) != EOF)
+        while (fscanf (file, "%s", c) != EOF)
             printf("%s",equacao);
 
         fclose(file);
