@@ -15,11 +15,11 @@ void main()
 
     lerArquivo(nomeArquivo);
 
+}
+
 ////////////////////////////////////////////////////////////////
 
-    void lerArquivo(char* a)
-    {
-
-    }
-
+void lerArquivo(char* a)
+{
+    file = fopen(nomeArquivo, "r");
 }
