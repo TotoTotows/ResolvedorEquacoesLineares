@@ -1,7 +1,7 @@
 void main()
 {
     int aux;
-    int qtdVariaveis;
+    char* nomeArquivo;
     char* equacao;
     int matriz[][];
 
@@ -9,17 +9,7 @@ void main()
 
     // Pega a quantidade de variaveis do sistema
     printf("Qual o nome do arquivo a ser lido ? ");
-    scanf("%i", &qtdVariaveis);
-
-    // Cria a matirz com as linhas e colunas certas
-    int matriz[qtdVariaveis][qtdVariaveis];
-
-    // Pede as equacoes
-    for (aux = 1; aux <= qtdVariaveis; aux = aux + 1)
-    {
-        printf("Digite a %ia equacao", aux);
-        scanf("%s", &equacao);
-    }
+    scanf("%s", &nomeArquivo);
 
 ////////////////////////////////////////////////////////////////
 
