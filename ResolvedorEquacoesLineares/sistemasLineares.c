@@ -12,7 +12,7 @@ void main()
     scanf("%i", &qtdVariaveis);
 
     // Cria a matirz com as linhas e colunas certas
-    criarMatriz(qtdVariaveis);
+    int matriz[qtdVariaveis][qtdVariaveis];
 
     // Pede as equacoes
     for (aux = 1; aux <= qtdVariaveis; aux = aux + 1)
@@ -23,10 +23,6 @@ void main()
 
 ////////////////////////////////////////////////////////////////
 
-    // Cria a matirz com as linhas e colunas certas
-    void criarMatriz(int a)
-    {
 
-    }
 
 }
