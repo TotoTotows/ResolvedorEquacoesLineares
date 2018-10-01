@@ -1,12 +1,14 @@
 #include <stdio.h>
 
     int aux;
-    char* nomeArquivo;
     FILE *file;
-    char* equacao;
 
 void main()
 {
+    char* nomeArquivo = (char*)malloc(sizeof(char)*255);
+
+////////////////////////////////////////////////////////////////
+
     // Pega o nome do arquivo a ser lido
     printf("Qual o nome do arquivo a ser lido ? ");
     scanf("%s", &nomeArquivo);
@@ -21,7 +23,7 @@ void main()
 void lerArquivo(char* a)
 {
     // Apenas para que o EOF funcione
-    char c[999];
+    char* c = (char*)malloc(sizeof(char)*255);
 
 ////////////////////////////////////////////////////////////////
 
@@ -30,7 +32,7 @@ void lerArquivo(char* a)
     if (file)
     {
         while (fscanf (file, "%s", c) != EOF)
-            printf("%s",equacao);
+            printf("%s", c);
 
         fclose(file);
     }
