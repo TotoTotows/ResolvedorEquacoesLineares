@@ -10,7 +10,7 @@ void main()
 ////////////////////////////////////////////////////////////////
 
     // Pega o nome do arquivo a ser lido
-    printf("Qual o nome do arquivo a ser lido ? ");
+    printf("Qual o nome do arquivo a ser lido ? \n");
     scanf("%s", &nomeArquivo);
 
     lerArquivo(nomeArquivo);
