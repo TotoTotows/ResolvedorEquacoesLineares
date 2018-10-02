@@ -27,6 +27,7 @@ void main()
 void lerArquivo(char* a)
 {
     char* c = (char*)malloc(sizeof(char)*255);
+
     file = fopen(a, "r");
 
     if (file)
