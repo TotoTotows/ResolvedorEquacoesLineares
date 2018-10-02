@@ -40,7 +40,7 @@ void lerArquivo(char* a)
     {
         for (i = 0; i < qtdVariaveis; i = i + 1)
         {
-            for (j = 0; j < qtdVariaveis; j = j + 1)
+            for (j = 0; j < qtdVariaveis*2; j = j + 1)
             {
                 fscanf (file, "%s", c);
                 matriz[i][j] = 1;
