@@ -43,10 +43,11 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis*2; j = j + 1)
             {
                 fscanf (file, "%s", c);
-                matriz[i][j] = 1;
+                matriz[i][j] = (int)c[1];
             }
 
         }
         fclose(file);
     }
+
 }
