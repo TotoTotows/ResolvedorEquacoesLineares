@@ -7,26 +7,16 @@
 
     int qtdVariaveis;
     char* equacao;
-    int equacoes[254];
-    int** matriz;
+    int matriz[254][255];
 
 void main()
 {
     char* nomeArquivo = (char*)malloc(sizeof(char)*255);
-    equacao = (char*)malloc(sizeof(char)*255);
 
 ////////////////////////////////////////////////////////////////
 
     printf("Quantas variaveis vai ter em cada equacao? ");
     scanf("%i", &qtdVariaveis);
-
-    // Cria a matriz do tamanho certo
-    int matrizGambiarra[qtdVariaveis][qtdVariaveis+1];
-    matriz = matrizGambiarra;
-    //for (i=0; i > qtdVariaveis; i = i + 1)
-    //{
-        //matriz[i] = malloc(size(int) * 255);
-    //}
 
     // Pega o nome do arquivo a ser lido
     printf("Qual o nome do arquivo a ser lido ? ");
@@ -53,7 +43,7 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j = j + 1)
             {
                 fscanf (file, "%s", c);
-                matriz[1][1] = 1;
+                matriz[i][j] = 1;
             }
 
         }
