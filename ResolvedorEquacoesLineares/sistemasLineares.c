@@ -29,7 +29,7 @@ void main()
 
 ////////////////////////////////////////////////////////////////
 
-// Le o arquivo e pega os valores das equacoes
+// Le o arquivo e coloca os valores na matriz
 void lerArquivo(char* a)
 {
     char* c = (char*)malloc(sizeof(char)*255);
@@ -38,13 +38,17 @@ void lerArquivo(char* a)
 
     if (file)
     {
+		// Coloca os valores das equacoes na matriz
         for (i = 0; i < qtdVariaveis; i = i + 1)
         {
-            for (j = 0; j < qtdVariaveis*2; j = j + 1)
+            for (j = 0; j < qtdVariaveis; j = j + 1)
             {
                 fscanf (file, "%s", c);
                 matriz[i][j] = (int)c[1];
+                fscanf (file, "%s", c);
             }
+            fscanf (file, "%s", c);
+            matriz[i][qtdVariaveis] = (int)c;
 
         }
         fclose(file);
