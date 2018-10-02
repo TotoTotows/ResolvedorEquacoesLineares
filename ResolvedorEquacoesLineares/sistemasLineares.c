@@ -2,6 +2,7 @@
 #include <string.h>
 
     int i;
+    int j;
     FILE *file;
 
     int qtdVariaveis;
@@ -20,11 +21,12 @@ void main()
     scanf("%i", &qtdVariaveis);
 
     // Cria a matriz do tamanho certo
-    //matriz = (int**)malloc(size(int*) * qtdVariaveis);
+    int matrizGambiarra[qtdVariaveis][qtdVariaveis+1];
+    matriz = matrizGambiarra;
     //for (i=0; i > qtdVariaveis; i = i + 1)
-    {
+    //{
         //matriz[i] = malloc(size(int) * 255);
-    }
+    //}
 
     // Pega o nome do arquivo a ser lido
     printf("Qual o nome do arquivo a ser lido ? ");
@@ -47,7 +49,14 @@ void lerArquivo(char* a)
     if (file)
     {
         while (fscanf (file, "%s", c) != EOF)
+
+        for (i = 0; i < qtdVariaveis; i = i + 1)
         {
+            for (j = 0; j < qtdVariaveis; j = j + 1)
+            {
+
+            }
+
             printf("%s ", c);
 
         }
