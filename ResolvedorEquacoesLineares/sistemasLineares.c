@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-    int aux;
+    int i;
     FILE *file;
     char* equacao;
+    int** matriz;
 
 void main()
 {
@@ -17,7 +18,12 @@ void main()
 
 
     lerArquivo(nomeArquivo);
-    printf("%s", equacao);
+
+    //matriz = (int**)malloc(size(int*) * 255);
+    //for (i=0; 255; i++)
+    {
+        //matriz[i] = malloc(size(int) * 255);
+    }
 
 }
 
@@ -34,9 +40,11 @@ void lerArquivo(char* a)
     {
         while (fscanf (file, "%s", c) != EOF)
         {
-            strcat(equacao, c);
-            strcat(equacao, " ");
+            printf("%s ", c);
+
         }
+
+        printf("%s", equacao);
         fclose(file);
     }
 }
