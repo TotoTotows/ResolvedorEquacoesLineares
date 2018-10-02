@@ -48,13 +48,12 @@ void lerArquivo(char* a)
 
     if (file)
     {
-        while (fscanf (file, "%s", c) != EOF)
-
         for (i = 0; i < qtdVariaveis; i = i + 1)
         {
             for (j = 0; j < qtdVariaveis; j = j + 1)
             {
-
+                fscanf (file, "%s", c);
+                matriz[i][j] = c[1];
             }
 
             printf("%s ", c);
