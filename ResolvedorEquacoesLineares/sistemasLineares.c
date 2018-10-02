@@ -4,6 +4,7 @@
     int i;
     FILE *file;
     char* equacao;
+    int equacoes[254];
     int** matriz;
 
 void main()
@@ -43,8 +44,6 @@ void lerArquivo(char* a)
             printf("%s ", c);
 
         }
-
-        printf("%s", equacao);
         fclose(file);
     }
 }
