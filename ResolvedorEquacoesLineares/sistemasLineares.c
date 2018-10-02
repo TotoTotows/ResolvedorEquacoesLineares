@@ -27,7 +27,7 @@ void lerArquivo(char* a)
 
 ////////////////////////////////////////////////////////////////
 
-    printf("%s\n", *a);
+    printf("%s\n", &a);
 
     file = fopen("teste.txt", "r");
 
