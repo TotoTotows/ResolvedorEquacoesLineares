@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-    int i;
-    int j;
     FILE *file;
 
     int qtdVariaveis;
@@ -48,6 +46,8 @@ void main()
 // Le o arquivo e coloca os valores na matriz
 void lerArquivo(char* a)
 {
+    int i;
+    int j;
     char* c = (char*)malloc(sizeof(char)*255);
 
     file = fopen(a, "r");
@@ -74,27 +74,33 @@ void lerArquivo(char* a)
 // Faz com que nao tenha nenhum 0 na diagonal principal
 void desnularEquacoes()
 {
+    int i;
+
     for (i = 0; i < qtdVariaveis; i++)
     {
-        if (matriz[i][i])
+        if (matriz[i][i] == 0)
             desnularEssa(i + 1);
+
     }
 
 }
 
 void desnularEssa(int e)
 {
+    int i;
+
     for (i = 0; i < qtdVariaveis; i++)
     {
         if (matriz[i][e - 1] != 0)
             somarEquacoes(e, i+1);
+
     }
 
 }
 
 somarEquacoes(int a, int b)
 {
-    printf("%i", a);
+    int i;
 
     for (i = 0; i <= qtdVariaveis; i++)
     {
