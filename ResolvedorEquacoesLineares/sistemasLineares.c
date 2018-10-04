@@ -23,20 +23,7 @@ void main()
     lerArquivo(nomeArquivo);
     desnularEquacoes();
 
-        printf("%i ", matriz[0][0]);
-        printf("%i ", matriz[0][1]);
-        printf("%i ", matriz[0][2]);
-        printf("%i\n", matriz[0][3]);
-
-        printf("%i ", matriz[1][0]);
-        printf("%i ", matriz[1][1]);
-        printf("%i ", matriz[1][2]);
-        printf("%i\n", matriz[1][3]);
-
-        printf("%i ", matriz[2][0]);
-        printf("%i ", matriz[2][1]);
-        printf("%i ", matriz[2][2]);
-        printf("%i\n", matriz[2][3]);
+    exec();
 
 }
 
@@ -108,4 +95,33 @@ somarEquacoes(int a, int b)
         matriz[a-1][i] += matriz[b-1][i];
     }
 
+}
+
+dividirEquacao(int e)
+{
+    int i;
+    int divisor = matriz[e-1][e-1];
+
+    for (i = 0; i <= qtdVariaveis; i++)
+    {
+        matriz[e-1][i] = matriz[e-1][i]/divisor;
+    }
+}
+
+void exec()
+{
+    printf("%i ", matriz[0][0]);
+    printf("%i ", matriz[0][1]);
+    printf("%i ", matriz[0][2]);
+    printf("%i\n", matriz[0][3]);
+
+    printf("%i ", matriz[1][0]);
+    printf("%i ", matriz[1][1]);
+    printf("%i ", matriz[1][2]);
+    printf("%i\n", matriz[1][3]);
+
+    printf("%i ", matriz[2][0]);
+    printf("%i ", matriz[2][1]);
+    printf("%i ", matriz[2][2]);
+    printf("%i\n", matriz[2][3]);
 }
