@@ -1,0 +1,4 @@
+O que falta fazer?
+
+ - Transformar a matriz em float
+ - Metodo para zerar as colunas
