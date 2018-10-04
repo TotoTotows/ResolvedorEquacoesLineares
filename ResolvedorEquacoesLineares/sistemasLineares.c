@@ -4,7 +4,6 @@
     FILE *file;
 
     int qtdVariaveis;
-    char* equacao;
     int matriz[254][255];
 
 void main()
@@ -26,7 +25,7 @@ void main()
 
         printf("%i ", matriz[0][0]);
         printf("%i ", matriz[0][1]);
-            printf("%i ", matriz[0][2]);
+        printf("%i ", matriz[0][2]);
         printf("%i\n", matriz[0][3]);
 
         printf("%i ", matriz[1][0]);
@@ -71,7 +70,7 @@ void lerArquivo(char* a)
 
 }
 
-// Faz com que nao tenha nenhum 0 na diagonal principal
+// Desnula todas as equacoes do sistema
 void desnularEquacoes()
 {
     int i;
@@ -85,6 +84,7 @@ void desnularEquacoes()
 
 }
 
+// Desnula a uma equacao em especifico
 void desnularEssa(int e)
 {
     int i;
@@ -98,6 +98,7 @@ void desnularEssa(int e)
 
 }
 
+// Soma duas equacoes
 somarEquacoes(int a, int b)
 {
     int i;
