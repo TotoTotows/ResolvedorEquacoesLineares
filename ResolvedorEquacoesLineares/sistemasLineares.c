@@ -10,8 +10,6 @@ void main()
 {
     char* nomeArquivo = (char*)malloc(sizeof(char)*255);
 
-////////////////////////////////////////////////////////////////
-
     printf("Quantas variaveis vai ter em cada equacao? ");
     scanf("%i", &qtdVariaveis);
 
@@ -21,7 +19,8 @@ void main()
 
 
     lerArquivo(nomeArquivo);
-    desnularEquacoes();
+    desanularEquacoes();
+    resolverSistema();
 
     exec();
 
@@ -57,22 +56,22 @@ void lerArquivo(char* a)
 
 }
 
-// Desnula todas as equacoes do sistema
-void desnularEquacoes()
+// Desanula todas as equacoes do sistema
+void desanularEquacoes()
 {
     int i;
 
     for (i = 0; i < qtdVariaveis; i++)
     {
         if (matriz[i][i] == 0)
-            desnularEssa(i + 1);
+            desanularEssa(i + 1);
 
     }
 
 }
 
-// Desnula a uma equacao em especifico
-void desnularEssa(int e)
+// Desanula a uma equacao em especifico
+void desanularEssa(int e)
 {
     int i;
 
@@ -86,7 +85,7 @@ void desnularEssa(int e)
 }
 
 // Soma duas equacoes
-somarEquacoes(int a, int b)
+void somarEquacoes(int a, int b)
 {
     int i;
 
@@ -107,6 +106,20 @@ void dividirEssa(int e)
     {
         matriz[e-1][i] = matriz[e-1][i]/divisor;
     }
+}
+
+void anularEssa(int c)
+{
+	
+
+}
+
+void resolverSistema();
+{
+	int i;
+
+	desanularEquacoes();
+
 }
 
 void exec()
