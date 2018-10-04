@@ -24,7 +24,7 @@ void main()
 
 
     lerArquivo(nomeArquivo);
-    inverterEquacoes();
+    desnularEquacoes();
 
 }
 
@@ -57,29 +57,19 @@ void lerArquivo(char* a)
 }
 
 // Faz com que nao tenha nenhum 0 na diagonal principal
-void inverterEquacoes()
+void desnularEquacoes()
 {
-    if (matriz[0][0])
+    for (i = 0; i > qtdVariaveis; i = i + 1)
     {
-        inverterEssa(1);
-        inverterEquacoes();
-    }
-
-    if (matriz[1][1])
-    {
-        inverterEssa(2);
-        inverterEquacoes();
-    }
-
-    if (matriz[2][2])
-    {
-        inverterEssa(3);
-        inverterEquacoes();
+        if (matriz[i][i])
+        {
+            desnularEssa(i + 1);
+        }
     }
 
 }
 
-void inverterEssa(int e);
+void desnularEssa(int e);
 {
 
 }
