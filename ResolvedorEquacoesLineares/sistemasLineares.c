@@ -74,7 +74,7 @@ void lerArquivo(char* a)
 // Faz com que nao tenha nenhum 0 na diagonal principal
 void desnularEquacoes()
 {
-    for (i = 0; i > qtdVariaveis; i++)
+    for (i = 0; i < qtdVariaveis; i++)
     {
         if (matriz[i][i])
             desnularEssa(i + 1);
@@ -94,6 +94,8 @@ void desnularEssa(int e)
 
 somarEquacoes(int a, int b)
 {
+    printf("%i", a);
+
     for (i = 0; i <= qtdVariaveis; i++)
     {
         matriz[a-1][i] += matriz[b-1][i];
