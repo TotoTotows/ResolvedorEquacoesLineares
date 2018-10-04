@@ -44,14 +44,28 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j = j + 1)
             {
                 fscanf (file, "%s", c);
-                matriz[i][j] = (int)c[1];
+                matriz[i][j] = c[0] - '0';
                 fscanf (file, "%s", c);
             }
             fscanf (file, "%s", c);
-            matriz[i][qtdVariaveis] = (int)c;
+            matriz[i][qtdVariaveis] = atoi(c);
 
         }
         fclose(file);
     }
 
+    printf("%i ", matriz[0][0]);
+    printf("%i ", matriz[0][1]);
+    printf("%i ", matriz[0][2]);
+    printf("%i\n", matriz[0][3]);
+
+    printf("%i ", matriz[1][0]);
+    printf("%i ", matriz[1][1]);
+    printf("%i ", matriz[1][2]);
+    printf("%i\n", matriz[1][3]);
+
+    printf("%i ", matriz[2][0]);
+    printf("%i ", matriz[2][1]);
+    printf("%i ", matriz[2][2]);
+    printf("%i\n", matriz[2][3]);
 }
