@@ -39,9 +39,9 @@ void lerArquivo(char* a)
     if (file)
     {
 		// Coloca os valores das equacoes na matriz
-        for (i = 0; i < qtdVariaveis; i = i + 1)
+        for (i = 0; i < qtdVariaveis; i++)
         {
-            for (j = 0; j < qtdVariaveis; j = j + 1)
+            for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
                 matriz[i][j] = c[0] - '0';
@@ -59,17 +59,29 @@ void lerArquivo(char* a)
 // Faz com que nao tenha nenhum 0 na diagonal principal
 void desnularEquacoes()
 {
-    for (i = 0; i > qtdVariaveis; i = i + 1)
+    for (i = 0; i > qtdVariaveis; i++)
     {
         if (matriz[i][i])
-        {
             desnularEssa(i + 1);
-        }
     }
 
 }
 
-void desnularEssa(int e);
+void desnularEssa(int e)
 {
+    for (i = 0; i < qtdVariaveis; i++)
+    {
+        if (matriz[i][e - 1] != 0)
+            somarEquacoes(e, i+1);
+    }
+
+}
+
+somarEquacoes(int a, int b)
+{
+    for (i = 0; i <= qtdVariaveis; i++)
+    {
+        matriz[a-1][i] += matriz[b-1][i];
+    }
 
 }
