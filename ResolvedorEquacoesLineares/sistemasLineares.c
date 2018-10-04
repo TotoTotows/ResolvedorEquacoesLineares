@@ -97,7 +97,8 @@ somarEquacoes(int a, int b)
 
 }
 
-dividirEquacao(int e)
+// Divide uma equacao especifica
+void dividirEssa(int e)
 {
     int i;
     int divisor = matriz[e-1][e-1];
