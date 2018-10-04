@@ -26,6 +26,21 @@ void main()
     lerArquivo(nomeArquivo);
     desnularEquacoes();
 
+        printf("%i ", matriz[0][0]);
+        printf("%i ", matriz[0][1]);
+            printf("%i ", matriz[0][2]);
+        printf("%i\n", matriz[0][3]);
+
+        printf("%i ", matriz[1][0]);
+        printf("%i ", matriz[1][1]);
+        printf("%i ", matriz[1][2]);
+        printf("%i\n", matriz[1][3]);
+
+        printf("%i ", matriz[2][0]);
+        printf("%i ", matriz[2][1]);
+        printf("%i ", matriz[2][2]);
+        printf("%i\n", matriz[2][3]);
+
 }
 
 ////////////////////////////////////////////////////////////////
