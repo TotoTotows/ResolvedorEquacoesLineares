@@ -59,6 +59,27 @@ void lerArquivo(char* a)
 // Faz com que nao tenha nenhum 0 na diagonal principal
 void inverterEquacoes()
 {
+    if (matriz[0][0])
+    {
+        inverterEssa(1);
+        inverterEquacoes();
+    }
 
+    if (matriz[1][1])
+    {
+        inverterEssa(2);
+        inverterEquacoes();
+    }
+
+    if (matriz[2][2])
+    {
+        inverterEssa(3);
+        inverterEquacoes();
+    }
+
+}
+
+void inverterEssa(int e);
+{
 
 }
