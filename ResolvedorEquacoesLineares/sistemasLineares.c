@@ -138,11 +138,10 @@ void resolverSistema()
 	int i;
 
 	for (i = 0; i < qtdVariaveis; i++)
-    {
-        dividirEssa(i + 1, NULL);
-        anularOutras(i + 1);
-
-    }
+	{
+        	dividirEssa(i + 1, NULL);
+        	anularOutras(i + 1);
+	}
 
 }
 
