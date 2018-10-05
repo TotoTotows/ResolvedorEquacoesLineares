@@ -109,9 +109,15 @@ void dividirEssa(int e)
     }
 }
 
-void anularEssa(int c)
+void anularOutras(int c)
 {
+    int i;
+    int divisor;
 
+    for (i = c - 1; i > 0; i--)
+    {
+        divisor = matriz[c-1][c-1]/matriz[i-1][c-1];
+    }
 
 }
 
@@ -123,7 +129,7 @@ void resolverSistema()
 	//for (i = 0; i < qtdVariaveis; i++)
     {
         //dividirEssa(i + 1);
-        //anularEssa(i + 1);
+        //anularOutras(i + 1);
 
     }
 
