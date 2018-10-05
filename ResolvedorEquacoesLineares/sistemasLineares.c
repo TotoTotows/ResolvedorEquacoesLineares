@@ -123,9 +123,9 @@ void anularOutras(int c)
 
     for (i = c; i <= qtdVariaveis; i++)
     {
+            printf("%i\n", i);
             exec();
         dividirEssa(c, (-1/matriz[i][c]));
-            //exec();
         somarEquacoes(i + 1, i);
         dividirEssa(c, (-matriz[i][c]));
     }
