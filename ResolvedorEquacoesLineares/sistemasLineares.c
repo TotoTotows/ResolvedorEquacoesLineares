@@ -23,8 +23,6 @@ void main()
     desanularEquacoes();
     resolverSistema();
 
-    exec();
-
 }
 
 ////////////////////////////////////////////////////////////////
@@ -98,7 +96,7 @@ void somarEquacoes(int a, int b)
 }
 
 // Divide uma equacao especifica
-void dividirEssa(int e, int n)
+void dividirEssa(int e, float n)
 {
     int i;
     int divisor = n;
@@ -123,11 +121,13 @@ void anularOutras(int c)
         dividirEssa(c, -(matriz[i-2][c]));
     }
 
-    for (i = c; i < qtdVariaveis; i++)
+    for (i = c; i <= qtdVariaveis; i++)
     {
-        dividirEssa(c, -(1/matriz[i][c]));
+            exec();
+        dividirEssa(c, (-1/matriz[i][c]));
+            //exec();
         somarEquacoes(i + 1, i);
-        dividirEssa(c, -(matriz[i][c]));
+        dividirEssa(c, (-matriz[i][c]));
     }
 
 }
@@ -139,7 +139,7 @@ void resolverSistema()
 
 	for (i = 0; i < qtdVariaveis; i++)
 	{
-        	dividirEssa(i + 1, NULL);
+        	dividirEssa(i + 1, matriz[i][i]);
         	anularOutras(i + 1);
 	}
 
