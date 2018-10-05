@@ -115,11 +115,17 @@ void anularEssa(int c)
 
 }
 
+// Usa os outros metodos para resolver o sistema
 void resolverSistema()
 {
 	int i;
 
-	desanularEquacoes();
+	//for (i = 0; i < qtdVariaveis; i++)
+    {
+        //dividirEssa(i + 1);
+        //anularEssa(i + 1);
+
+    }
 
 }
 
