@@ -115,20 +115,19 @@ void dividirEssa(int e, int n)
 void anularOutras(int c)
 {
     int i;
-    int divisor;
 
-    for (i = c - 1; i > 0; i--)
+    for (i = c; i > 1; i--)
     {
-        dividirEssa(c, 1/matriz[i-1][c]);
-        somarEquacoes(i, i+1);
-        dividirEssa(c, matriz[i-1][c]);
+        dividirEssa(c, -(1/matriz[i-2][c]));
+        somarEquacoes(i - 1, i);
+        dividirEssa(c, -(matriz[i-2][c]));
     }
 
     for (i = c; i < qtdVariaveis; i++)
     {
-        dividirEssa(c, 1/matriz[i][c]);
-        somarEquacoes(i, i-1);
-        dividirEssa(c, matriz[i][c]);
+        dividirEssa(c, -(1/matriz[i][c]));
+        somarEquacoes(i + 1, i);
+        dividirEssa(c, -(matriz[i][c]));
     }
 
 }
