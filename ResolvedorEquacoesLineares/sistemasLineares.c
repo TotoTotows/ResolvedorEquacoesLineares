@@ -4,11 +4,12 @@
     FILE *file;
 
     int qtdVariaveis;
-    int matriz[254][255];
+    float matriz[254][255];
 
 void main()
 {
     char* nomeArquivo = (char*)malloc(sizeof(char)*255);
+
 
     printf("Quantas variaveis vai ter em cada equacao? ");
     scanf("%i", &qtdVariaveis);
@@ -44,11 +45,11 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
-                matriz[i][j] = c[0] - '0';
+                matriz[i][j] = (float)c[0] - '0';
                 fscanf (file, "%s", c);
             }
             fscanf (file, "%s", c);
-            matriz[i][qtdVariaveis] = atoi(c);
+            matriz[i][qtdVariaveis] = (float)atoi(c);
 
         }
         fclose(file);
@@ -110,11 +111,11 @@ void dividirEssa(int e)
 
 void anularEssa(int c)
 {
-	
+
 
 }
 
-void resolverSistema();
+void resolverSistema()
 {
 	int i;
 
@@ -124,18 +125,18 @@ void resolverSistema();
 
 void exec()
 {
-    printf("%i ", matriz[0][0]);
-    printf("%i ", matriz[0][1]);
-    printf("%i ", matriz[0][2]);
-    printf("%i\n", matriz[0][3]);
+    printf("%f ", matriz[0][0]);
+    printf("%f ", matriz[0][1]);
+    printf("%f ", matriz[0][2]);
+    printf("%f\n", matriz[0][3]);
 
-    printf("%i ", matriz[1][0]);
-    printf("%i ", matriz[1][1]);
-    printf("%i ", matriz[1][2]);
-    printf("%i\n", matriz[1][3]);
+    printf("%f ", matriz[1][0]);
+    printf("%f ", matriz[1][1]);
+    printf("%f ", matriz[1][2]);
+    printf("%f\n", matriz[1][3]);
 
-    printf("%i ", matriz[2][0]);
-    printf("%i ", matriz[2][1]);
-    printf("%i ", matriz[2][2]);
-    printf("%i\n", matriz[2][3]);
+    printf("%f ", matriz[2][0]);
+    printf("%f ", matriz[2][1]);
+    printf("%f ", matriz[2][2]);
+    printf("%f\n", matriz[2][3]);
 }
