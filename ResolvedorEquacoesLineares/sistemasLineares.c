@@ -98,10 +98,13 @@ void somarEquacoes(int a, int b)
 }
 
 // Divide uma equacao especifica
-void dividirEssa(int e)
+void dividirEssa(int e, int n)
 {
     int i;
-    int divisor = matriz[e-1][e-1];
+    int divisor = n;
+
+    if (divisor == 0);
+        int divisor = matriz[e-1][e-1];
 
     for (i = 0; i <= qtdVariaveis; i++)
     {
@@ -116,7 +119,9 @@ void anularOutras(int c)
 
     for (i = c - 1; i > 0; i--)
     {
-        divisor = matriz[c-1][c-1]/matriz[i-1][c-1];
+        dividirEssa(c, 1/matriz[i-1][c]);
+        somarEquacoes(i, i+1);
+        divirEssa(c, matriz[i-1][c]);
     }
 
 }
@@ -128,7 +133,7 @@ void resolverSistema()
 
 	//for (i = 0; i < qtdVariaveis; i++)
     {
-        //dividirEssa(i + 1);
+        //dividirEssa(i + 1, 0);
         //anularOutras(i + 1);
 
     }
