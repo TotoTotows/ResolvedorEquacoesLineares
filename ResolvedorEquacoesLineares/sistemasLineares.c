@@ -103,7 +103,7 @@ void dividirEssa(int e, int n)
     int i;
     int divisor = n;
 
-    if (divisor == 0)
+    if (divisor == NULL)
         divisor = matriz[e-1][e-1];
 
     for (i = 0; i <= qtdVariaveis; i++)
@@ -124,6 +124,13 @@ void anularOutras(int c)
         dividirEssa(c, matriz[i-1][c]);
     }
 
+    for (i = c; i < qtdVariaveis; i++)
+    {
+        dividirEssa(c, 1/matriz[i][c]);
+        somarEquacoes(i, i-1);
+        dividirEssa(c, matriz[i][c]);
+    }
+
 }
 
 // Usa os outros metodos para resolver o sistema
@@ -131,10 +138,10 @@ void resolverSistema()
 {
 	int i;
 
-	//for (i = 0; i < qtdVariaveis; i++)
+	for (i = 0; i < qtdVariaveis; i++)
     {
-        //dividirEssa(i + 1, 0);
-        //anularOutras(i + 1);
+        dividirEssa(i + 1, NULL);
+        anularOutras(i + 1);
 
     }
 
@@ -155,5 +162,5 @@ void exec()
     printf("%.2f ", matriz[2][0]);
     printf("%.2f ", matriz[2][1]);
     printf("%.2f ", matriz[2][2]);
-    printf("%.2f\n", matriz[2][3]);
+    printf("%.2f\n\n", matriz[2][3]);
 }
