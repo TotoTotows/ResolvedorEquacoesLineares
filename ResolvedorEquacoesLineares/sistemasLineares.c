@@ -103,8 +103,8 @@ void dividirEssa(int e, int n)
     int i;
     int divisor = n;
 
-    if (divisor == 0);
-        int divisor = matriz[e-1][e-1];
+    if (divisor == 0)
+        divisor = matriz[e-1][e-1];
 
     for (i = 0; i <= qtdVariaveis; i++)
     {
@@ -121,7 +121,7 @@ void anularOutras(int c)
     {
         dividirEssa(c, 1/matriz[i-1][c]);
         somarEquacoes(i, i+1);
-        divirEssa(c, matriz[i-1][c]);
+        dividirEssa(c, matriz[i-1][c]);
     }
 
 }
