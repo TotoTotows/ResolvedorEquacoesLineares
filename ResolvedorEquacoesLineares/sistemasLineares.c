@@ -124,17 +124,20 @@ void anularOutras(int c)
 
     for (i = c; i > 1; i--)
     {
-        dividirEssa(c, (-1/matriz[i-2][c-1]));
-        somarEquacoes(i - 1, i);
-        dividirEssa(c, -(matriz[i-2][c-1]));
+            exec();
+        multiplicarEssaNegativo(c, matriz[i-2][c-1]);
+            exec();
+        somarEquacoes(i-1, c);
+            exec();
+        dividirEssa(c, matriz[c-1][c-1]);
     }
 
-    for (i = c; i <= qtdVariaveis; i++)
+    for (i = c; i < qtdVariaveis; i++)
     {
             exec();
         multiplicarEssaNegativo(c, matriz[i][c-1]);
             exec();
-        somarEquacoes(i+1, i);
+        somarEquacoes(i+1, c);
             exec();
         dividirEssa(c, matriz[c-1][c-1]);
     }
