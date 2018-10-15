@@ -4,7 +4,7 @@
     FILE *file;
 
     int qtdVariaveis;
-    float matriz[254][255];
+    float** matriz;
 
 void main()
 {
@@ -14,14 +14,15 @@ void main()
     printf("Quantas variaveis vai ter em cada equacao? ");
     scanf("%i", &qtdVariaveis);
 
+    matriz = (float**)(malloc(sizeof(float*) * (qtdVariaveis + 1)));
+
     // Pega o nome do arquivo a ser lido
     printf("Qual o nome do arquivo a ser lido ? ");
     scanf("%s", nomeArquivo);
 
 
     lerArquivo(nomeArquivo);
-    desanularEquacoes();
-    resolverSistema();
+
 
     exec();
 
@@ -45,7 +46,7 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
-                matriz[i][j] = (float)c[0] - '0';
+                *(*(matriz+i)+j ) = (float)c[0] - '0';
                 fscanf (file, "%s", c);
             }
             fscanf (file, "%s", c);
@@ -54,99 +55,52 @@ void lerArquivo(char* a)
         }
         fclose(file);
     }
-
+//matriz [1][1]
+//*(*(matriz+1)+1)
 }
 
-// Desanula todas as equacoes do sistema
-void desanularEquacoes()
-{
-    int i;
+double determinante(double** matriz, int ordem) {
+	int    a, i, j;
+	double ret = 0;
+	int    c1, c2;
+	int    O = 1; /* representa se o cofator atual deve ser multiplicado por 1 ou -1 */
 
-    for (i = 0; i < qtdVariaveis; i++)
-    {
-        if (matriz[i][i] == 0)
-            desanularEssa(i + 1);
+	if (ordem == 2) {
+		ret = **(matriz) * *(*(matriz+1)+1) - *(*(matriz)+1) * *(*(matriz+1));
+		return ret;
+	}
 
-    }
+	double** matriz_menor = (double**)malloc(sizeof(double*)*(ordem-1));
+	for (i=0; i<ordem-1; i++)
+		*(matriz_menor+i) = (double*)malloc(sizeof(double)*(ordem-1));
 
+	for (a=0; a<ordem; a++) { /* ira percorrer a primeira linha da matriz */
+		c1 = 0, c2 = 0;
+		for (i=1; i<ordem; i++) { /* linha da matriz menor */
+			for (j=0; j<ordem; j++) { /* coluna da matriz menor */
+				if (j != a) {
+					/* ira colocar na matriz menor somente aqueles que nao pertencem
+					 * a linha e coluna do elemento cujo cofator esteja sendo calculado */
+					*(*(matriz_menor+c1)+c2) = *(*(matriz+i)+j);
+					c2++;
+					if (c2>ordem-2) {
+						c1++;
+						c2=0;
+					}
+				}
+			}
+		}
+		ret = ret + O*(*(*(matriz)+a) * determinante(matriz_menor, ordem-1));
+		O = -1*O;
+	}
+
+	for (i=0; i<(ordem-1); i++)
+		free(*(matriz_menor+i));
+	free(matriz_menor);
+
+	return ret;
 }
 
-// Desanula a uma equacao em especifico
-void desanularEssa(int e)
-{
-    int i;
-
-    for (i = 0; i < qtdVariaveis; i++)
-    {
-        if (matriz[i][e - 1] != 0)
-            somarEquacoes(e, i+1);
-
-    }
-
-}
-
-// Soma duas equacoes
-void somarEquacoes(int a, int b)
-{
-    int i;
-
-    for (i = 0; i <= qtdVariaveis; i++)
-    {
-        matriz[a-1][i] += matriz[b-1][i];
-    }
-
-}
-
-// Divide uma equacao especifica
-void dividirEssa(int e, float n)
-{
-    int i;
-    float divisor = n;
-
-    for (i = 0; i <= qtdVariaveis; i++)
-    {
-        matriz[e-1][i] = matriz[e-1][i]/divisor;
-    }
-}
-
-void multiplicarEssaNegativo(int e, float n)
-{
-    int i;
-    float multiplicador = -n;
-
-    for (i = 0; i <= qtdVariaveis; i++)
-    {
-        matriz[e-1][i] = matriz[e-1][i]*multiplicador;
-    }
-}
-
-void anularOutras(int c)
-{
-    int i;
-
-    for (i = c; i > 1; i--)
-    {
-            exec();
-        multiplicarEssaNegativo(c, matriz[i-2][c-1]);
-            exec();
-        somarEquacoes(i-1, c);
-            exec();
-        dividirEssa(c, matriz[c-1][c-1]);
-            exec();
-    }
-
-    for (i = c; i < qtdVariaveis; i++)
-    {
-            exec();
-        multiplicarEssaNegativo(c, matriz[i][c-1]);
-            exec();
-        somarEquacoes(i+1, c);
-            exec();
-        dividirEssa(c, matriz[c-1][c-1]);
-            exec();
-    }
-
-}
 
 // Usa os outros metodos para resolver o sistema
 void resolverSistema()
@@ -155,35 +109,21 @@ void resolverSistema()
 
 	for (i = 0; i < qtdVariaveis; i++)
 	{
-        dividirEssa(i+1, matriz[i][i]);
-        anularOutras(i+1);
+        exec();
 	}
 
 }
 
 void exec()
 {
-    printf("%.2f ", matriz[0][0]);
-    printf("%.2f ", matriz[0][1]);
-    printf("%.2f ", matriz[0][2]);
-    printf("%.2f ", matriz[0][3]);
-    printf("%.2f\n", matriz[0][4]);
+    int i, j;
 
-    printf("%.2f ", matriz[1][0]);
-    printf("%.2f ", matriz[1][1]);
-    printf("%.2f ", matriz[1][2]);
-    printf("%.2f ", matriz[0][3]);
-    printf("%.2f\n", matriz[1][4]);
-
-    printf("%.2f ", matriz[2][0]);
-    printf("%.2f ", matriz[2][1]);
-    printf("%.2f ", matriz[2][2]);
-    printf("%.2f ", matriz[0][3]);
-    printf("%.2f\n", matriz[2][4]);
-
-    printf("%.2f ", matriz[3][0]);
-    printf("%.2f ", matriz[3][1]);
-    printf("%.2f ", matriz[3][2]);
-    printf("%.2f ", matriz[0][3]);
-    printf("%.2f\n\n", matriz[3][4]);
+    for(i = 0; i < qtdVariaveis; i++)
+    {
+       for(j = 0; j < qtdVariaveis - 1; j++)
+       {
+            printf("%.2lf ", *(*(matriz+i)+j));
+       }
+       printf("%.2lf\n\n", *(*(matriz+i)+qtdVariaveis));
+    }
 }
