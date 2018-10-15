@@ -107,10 +107,10 @@ void dividirEssa(int e, float n)
     }
 }
 
-void multiplicarEssa(int e, float n)
+void multiplicarEssaNegativo(int e, float n)
 {
     int i;
-    int multiplicador = n;
+    int multiplicador = -n;
 
     for (i = 0; i <= qtdVariaveis; i++)
     {
@@ -131,8 +131,12 @@ void anularOutras(int c)
 
     for (i = c; i <= qtdVariaveis; i++)
     {
-        multiplicarEssa(c, );
-        somarEquacoes(i + 1, i);
+            exec();
+        multiplicarEssaNegativo(c, matriz[i][c-1]);
+            exec();
+        somarEquacoes(i+1, i);
+            exec();
+        dividirEssa(c, matriz[c-1][c-1]);
     }
 
 }
@@ -144,8 +148,8 @@ void resolverSistema()
 
 	for (i = 0; i < qtdVariaveis; i++)
 	{
-        	dividirEssa(i + 1, matriz[i][i]);
-        	anularOutras(i + 1);
+        dividirEssa(i + 1, matriz[i][i]);
+        anularOutras(i + 1);
 	}
 
 }
