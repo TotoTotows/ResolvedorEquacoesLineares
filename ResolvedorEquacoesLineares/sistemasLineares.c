@@ -116,18 +116,16 @@ void anularOutras(int c)
 
     for (i = c; i > 1; i--)
     {
-        dividirEssa(c, -(1/matriz[i-2][c]));
+        dividirEssa(c, (-1/matriz[i-2][c-1]));
         somarEquacoes(i - 1, i);
-        dividirEssa(c, -(matriz[i-2][c]));
+        dividirEssa(c, -(matriz[i-2][c-1]));
     }
 
     for (i = c; i <= qtdVariaveis; i++)
     {
-            printf("%i\n", i);
-            exec();
-        dividirEssa(c, (-1/matriz[i][c]));
+        dividirEssa(c, (-1/matriz[i][c-1]));
         somarEquacoes(i + 1, i);
-        dividirEssa(c, (-matriz[i][c]));
+        dividirEssa(c, (-matriz[i][c-1]));
     }
 
 }
