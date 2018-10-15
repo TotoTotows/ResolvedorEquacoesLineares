@@ -8,21 +8,23 @@
 
 void main()
 {
-    char* nomeArquivo = (char*)malloc(sizeof(char)*255);
+    int i;
 
+    char* nomeArquivo = (char*)malloc(sizeof(char)*255);
 
     printf("Quantas variaveis vai ter em cada equacao? ");
     scanf("%i", &qtdVariaveis);
 
     matriz = (double**)(malloc(sizeof(double*) * (qtdVariaveis + 1)));
+    for (i = 0; i < qtdVariaveis; i++)
+        *(matriz+i) = (double*)malloc(sizeof(double)*qtdVariaveis);
+
 
     // Pega o nome do arquivo a ser lido
     printf("Qual o nome do arquivo a ser lido ? ");
     scanf("%s", nomeArquivo);
 
-
     lerArquivo(nomeArquivo);
-
 
     exec();
 
@@ -40,7 +42,7 @@ void lerArquivo(char* a)
     file = fopen(a, "r");
     if (file)
     {
-		// Coloca os valores das equacoes na matriz
+		//Coloca os valores das equacoes na matriz
         for (i = 0; i < qtdVariaveis; i++)
         {
             for (j = 0; j < qtdVariaveis; j++)
@@ -105,21 +107,27 @@ double determinante(double** matriz, int ordem) {
 // Usa os outros metodos para resolver o sistema
 void resolverSistema()
 {
-	double D = determinante(matriz , qtdVariaveis);
+	int i;
 
+	for (i = 0; i < qtdVariaveis; i++)
+	{
+        exec();
+	}
 
 }
 
 void exec()
 {
-    int i, j;
+    int i;
+    int j;
 
-    for(i = 0; i <= qtdVariaveis; i++)
+    for(i = 0; i < qtdVariaveis; i++)
     {
-       for(j = 0; j < qtdVariaveis ; j++)
+       for(j = 0; j <= qtdVariaveis; j++)
        {
-            printf("%.2lf ", *(*(matriz+i)+j));
+            printf("%.2f ", *(*(matriz+i)+j));
        }
-       printf("%.2lf\n\n", *(*(matriz+i)+qtdVariaveis));
+       printf("\n");
+
     }
 }
