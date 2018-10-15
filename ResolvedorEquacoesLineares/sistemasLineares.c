@@ -107,6 +107,17 @@ void dividirEssa(int e, float n)
     }
 }
 
+void multiplicarEssa(int e, float n)
+{
+    int i;
+    int multiplicador = n;
+
+    for (i = 0; i <= qtdVariaveis; i++)
+    {
+        matriz[e-1][i] = matriz[e-1][i]*multiplicador;
+    }
+}
+
 void anularOutras(int c)
 {
     int i;
@@ -120,9 +131,8 @@ void anularOutras(int c)
 
     for (i = c; i <= qtdVariaveis; i++)
     {
-        dividirEssa(c, (-1/matriz[i][c-1]));
+        multiplicarEssa(c, );
         somarEquacoes(i + 1, i);
-        dividirEssa(c, (-matriz[i][c-1]));
     }
 
 }
