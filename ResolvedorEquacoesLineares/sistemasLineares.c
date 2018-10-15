@@ -23,6 +23,8 @@ void main()
     desanularEquacoes();
     resolverSistema();
 
+    exec();
+
 }
 
 ////////////////////////////////////////////////////////////////
@@ -99,7 +101,7 @@ void somarEquacoes(int a, int b)
 void dividirEssa(int e, float n)
 {
     int i;
-    int divisor = n;
+    float divisor = n;
 
     for (i = 0; i <= qtdVariaveis; i++)
     {
@@ -110,7 +112,7 @@ void dividirEssa(int e, float n)
 void multiplicarEssaNegativo(int e, float n)
 {
     int i;
-    int multiplicador = -n;
+    float multiplicador = -n;
 
     for (i = 0; i <= qtdVariaveis; i++)
     {
@@ -130,6 +132,7 @@ void anularOutras(int c)
         somarEquacoes(i-1, c);
             exec();
         dividirEssa(c, matriz[c-1][c-1]);
+            exec();
     }
 
     for (i = c; i < qtdVariaveis; i++)
@@ -140,6 +143,7 @@ void anularOutras(int c)
         somarEquacoes(i+1, c);
             exec();
         dividirEssa(c, matriz[c-1][c-1]);
+            exec();
     }
 
 }
@@ -151,8 +155,8 @@ void resolverSistema()
 
 	for (i = 0; i < qtdVariaveis; i++)
 	{
-        dividirEssa(i + 1, matriz[i][i]);
-        anularOutras(i + 1);
+        dividirEssa(i+1, matriz[i][i]);
+        anularOutras(i+1);
 	}
 
 }
@@ -162,15 +166,24 @@ void exec()
     printf("%.2f ", matriz[0][0]);
     printf("%.2f ", matriz[0][1]);
     printf("%.2f ", matriz[0][2]);
-    printf("%.2f\n", matriz[0][3]);
+    printf("%.2f ", matriz[0][3]);
+    printf("%.2f\n", matriz[0][4]);
 
     printf("%.2f ", matriz[1][0]);
     printf("%.2f ", matriz[1][1]);
     printf("%.2f ", matriz[1][2]);
-    printf("%.2f\n", matriz[1][3]);
+    printf("%.2f ", matriz[0][3]);
+    printf("%.2f\n", matriz[1][4]);
 
     printf("%.2f ", matriz[2][0]);
     printf("%.2f ", matriz[2][1]);
     printf("%.2f ", matriz[2][2]);
-    printf("%.2f\n\n", matriz[2][3]);
+    printf("%.2f ", matriz[0][3]);
+    printf("%.2f\n", matriz[2][4]);
+
+    printf("%.2f ", matriz[3][0]);
+    printf("%.2f ", matriz[3][1]);
+    printf("%.2f ", matriz[3][2]);
+    printf("%.2f ", matriz[0][3]);
+    printf("%.2f\n\n", matriz[3][4]);
 }
