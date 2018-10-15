@@ -101,9 +101,6 @@ void dividirEssa(int e, float n)
     int i;
     int divisor = n;
 
-    if (divisor == NULL)
-        divisor = matriz[e-1][e-1];
-
     for (i = 0; i <= qtdVariaveis; i++)
     {
         matriz[e-1][i] = matriz[e-1][i]/divisor;
