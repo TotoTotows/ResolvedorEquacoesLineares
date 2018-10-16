@@ -5,6 +5,7 @@
 
     int qtdVariaveis;
     double** matriz;
+    double** matrizAux;
 
 void main()
 {
@@ -19,6 +20,10 @@ void main()
     for (i = 0; i < qtdVariaveis; i++)
         *(matriz+i) = (double*)malloc(sizeof(double)*qtdVariaveis);
 
+    matrizAux = (double**)(malloc(sizeof(double*) * (qtdVariaveis)));
+    for (i = 0; i < qtdVariaveis; i++)
+        *(matrizAux+i) = (double*)malloc(sizeof(double)*qtdVariaveis);
+
 
     // Pega o nome do arquivo a ser lido
     printf("Qual o nome do arquivo a ser lido ? ");
@@ -26,7 +31,7 @@ void main()
 
     lerArquivo(nomeArquivo);
 
-    exec();
+    resolverSistema();
 
 }
 
@@ -72,7 +77,7 @@ double determinante(double** matriz, int ordem) {
 		return ret;
 	}
 
-	double** matriz_menor = (double**)malloc(sizeof(double*)*(ordem-1));
+	double** matriz_menor = (double**)malloc(sizeof(double*)*(ordem-2));
 	for (i=0; i<ordem-1; i++)
 		*(matriz_menor+i) = (double*)malloc(sizeof(double)*(ordem-1));
 
@@ -107,27 +112,47 @@ double determinante(double** matriz, int ordem) {
 // Usa os outros metodos para resolver o sistema
 void resolverSistema()
 {
-	int i;
+    int i;
+    int j;
+    int k;
 
-	for (i = 0; i < qtdVariaveis; i++)
-	{
-        exec();
-	}
+    double det = determinante(matriz, qtdVariaveis);
+
+    printf("%lf", det);
+
+    double detPrin = determinante(matriz, qtdVariaveis);
+    for(i = 0; i < qtdVariaveis ; i++)
+    {
+        for(j = 0; j < qtdVariaveis; j++)
+        {
+             *(*(matrizAux+i)+j) = *(*(matriz+i)+j);
+        }
+        for(k = 0; k < qtdVariaveis; k++)
+        {
+            *(*(matrizAux+k)+i) = *(*(matriz+k)+(qtdVariaveis + 1));
+        }
+        double result = determinante(matrizAux, qtdVariaveis);
+        printf("%lf, ", result);
+        exec(matrizAux);
+
+    }
 
 }
 
-void exec()
+void exec(double** matrizExex)
 {
     int i;
     int j;
+    int k;
 
     for(i = 0; i < qtdVariaveis; i++)
     {
-       for(j = 0; j <= qtdVariaveis; j++)
+       for(j = 0; j < qtdVariaveis; j++)
        {
-            printf("%.2f ", *(*(matriz+i)+j));
+            printf("%.2f ", *(*(matrizExex+i)+j));
        }
-       printf("\n");
-
+       printf("\n\n");
     }
+
+
 }
