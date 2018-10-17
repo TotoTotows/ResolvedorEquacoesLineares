@@ -112,28 +112,31 @@ double determinante(double** matriz, int ordem) {
 // Usa os outros metodos para resolver o sistema
 void resolverSistema()
 {
-    int i;
-    int j;
-    int k;
+    int i,j,k,l;
 
     double det = determinante(matriz, qtdVariaveis);
 
-    printf("%lf", det);
+    //printf("%lf", det);
 
     double detPrin = determinante(matriz, qtdVariaveis);
     for(i = 0; i < qtdVariaveis ; i++)
     {
         for(j = 0; j < qtdVariaveis; j++)
         {
-             *(*(matrizAux+i)+j) = *(*(matriz+i)+j);
+             for(l = 0; l < qtdVariaveis; l++)
+             {
+                 *(*(matrizAux+j)+l) = *(*(matriz+j)+l);
+             }
         }
+
         for(k = 0; k < qtdVariaveis; k++)
         {
-            *(*(matrizAux+k)+i) = *(*(matriz+k)+(qtdVariaveis + 1));
+            *(*(matrizAux+k)+i) = *(*(matriz+k)+(qtdVariaveis));
         }
-        double result = determinante(matrizAux, qtdVariaveis);
+        double detMatrizAux = determinante(matrizAux, qtdVariaveis);
+        double result       = detMatrizAux/det;
         printf("%lf, ", result);
-        exec(matrizAux);
+
 
     }
 
