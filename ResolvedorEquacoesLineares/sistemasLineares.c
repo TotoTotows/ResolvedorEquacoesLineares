@@ -43,7 +43,7 @@ void lerArquivo(char* a)
     int i;
     int j;
     char* c = (char*)malloc(sizeof(char)*255);
-    int sinal;
+    double sinal = 1;
 
     file = fopen(a, "r");
     if (file)
@@ -54,15 +54,14 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
-                    c = processarNumero(c);
-                *(*(matriz+i)+j ) = (double)c[0] - '0';
+                *(*(matriz+i)+j ) = sinal*((double)c[0] - '0');
 
                 fscanf (file, "%s", c);
                     if (c == "-")
                         sinal = -1;
 
                     if (c == "+")
-                        sinal 1;
+                        sinal = 1;
             }
             fscanf (file, "%s", c);
             matriz[i][qtdVariaveis] = (double)atoi(c);
