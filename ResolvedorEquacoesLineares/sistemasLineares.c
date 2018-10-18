@@ -154,11 +154,6 @@ void resolverSistema()
 
 }
 
-char* processarNumero(char* c)
-{
-
-}
-
 double ehSinal(char* c)
 {
     if (c == "-")
