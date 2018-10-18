@@ -57,11 +57,16 @@ void lerArquivo(char* a)
                 *(*(matriz+i)+j ) = sinal*((double)c[0] - '0');
 
                 fscanf (file, "%s", c);
-                    if (c == "-")
+                    if (strcmp(c,"-") == 0)
+                    {
                         sinal = -1;
+                    }
 
-                    if (c == "+")
+                    if (strcmp(c,"+") == 0)
+                    {
                         sinal = 1;
+                    }
+
             }
             fscanf (file, "%s", c);
             matriz[i][qtdVariaveis] = (double)atoi(c);
@@ -142,7 +147,7 @@ void resolverSistema()
         }
         double detMatrizAux = determinante(matrizAux, qtdVariaveis);
         double result       = detMatrizAux/det;
-        printf("%lf, ", result);
+        printf("%.2lf, ", result);
 
 
     }
