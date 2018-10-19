@@ -16,9 +16,9 @@ void main()
     printf("Quantas variaveis vai ter em cada equacao? ");
     scanf("%i", &qtdVariaveis);
 
-    matriz = (double**)(malloc(sizeof(double*) * (qtdVariaveis + 1)));
+    matriz = (double**)(malloc(sizeof(double*) * (qtdVariaveis)));
     for (i = 0; i < qtdVariaveis; i++)
-        *(matriz+i) = (double*)malloc(sizeof(double)*qtdVariaveis);
+        *(matriz+i) = (double*)malloc(sizeof(double)*qtdVariaveis + 1);
 
     matrizAux = (double**)(malloc(sizeof(double*) * (qtdVariaveis)));
     for (i = 0; i < qtdVariaveis; i++)
@@ -34,6 +34,24 @@ void main()
     resolverSistema();
 
 }
+
+double processarNumero(char* c)
+{
+    int i;
+    double ret;
+    char gambi[255];
+    *(gambi) = '\0';
+    char caracter_a_inserir[2];
+    *(caracter_a_inserir + 1) = '\0';
+    int tamanho = strlen(c);
+     for (i = 0; i < tamanho-1; i++)
+    {
+        *caracter_a_inserir = c[i];
+        strcat(gambi, caracter_a_inserir);
+    }
+     sscanf(gambi, "%lf", &ret);
+     return ret;
+ }
 
 ////////////////////////////////////////////////////////////////
 
@@ -54,7 +72,7 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
-                *(*(matriz+i)+j ) = sinal*(processarNumero(c));
+                *(*(matriz+i)+j) = sinal*(processarNumero(c));
 
                 fscanf (file, "%s", c);
                     if (strcmp(c,"-") == 0)
@@ -66,7 +84,6 @@ void lerArquivo(char* a)
                     {
                         sinal = 1;
                     }
-
             }
             fscanf (file, "%s", c);
             matriz[i][qtdVariaveis] = (double)atoi(c);
@@ -76,20 +93,6 @@ void lerArquivo(char* a)
 //matriz [1][1]
 //*(*(matriz+1)+1)
 }
-
-double processarNumero(char* c)
-{
-    int i;
-    double ret;
-    char* gambi = "";
-    int tamanho = strlen(c);
-     for (i = 0; i < tamanho-1; i++)
-    {
-        strcat(gambi, c[i]);
-    }
-     sscanf(gambi, "%lf", &ret);
-     return ret;
- }
 
 
 double determinante(double** matriz, int ordem) {
@@ -103,7 +106,7 @@ double determinante(double** matriz, int ordem) {
 		return ret;
 	}
 
-	double** matriz_menor = (double**)malloc(sizeof(double*)*(ordem-2));
+	double** matriz_menor = (double**)malloc(sizeof(double*)*(ordem-1));
 	for (i=0; i<ordem-1; i++)
 		*(matriz_menor+i) = (double*)malloc(sizeof(double)*(ordem-1));
 
@@ -136,11 +139,10 @@ double determinante(double** matriz, int ordem) {
 
 void resolverSistema() // Resolve o sistema utilizando o metodo de cramer
 {
-    int i,j,k,l;
+    int i,j,k;
 
     double det = determinante(matriz, qtdVariaveis);
 
-    //printf("%lf", det);
     for(i = 0; i < qtdVariaveis ; i++)
     {
         for(j = 0; j < qtdVariaveis; j++)
@@ -158,6 +160,7 @@ void resolverSistema() // Resolve o sistema utilizando o metodo de cramer
         double cofator = determinante(matrizAux, qtdVariaveis);
         double result  = cofator/det;
         printf("%.2lf, ", result);
+
     }
 }
 
