@@ -70,7 +70,6 @@ void lerArquivo(char* a)
             }
             fscanf (file, "%s", c);
             matriz[i][qtdVariaveis] = (double)atoi(c);
-
         }
         fclose(file);
     }
@@ -120,24 +119,20 @@ double determinante(double** matriz, int ordem) {
 	return ret;
 }
 
-
-// Usa os outros metodos para resolver o sistema
-void resolverSistema()
+void resolverSistema() // Resolve o sistema utilizando o metodo de cramer
 {
     int i,j,k,l;
 
     double det = determinante(matriz, qtdVariaveis);
 
     //printf("%lf", det);
-
-    double detPrin = determinante(matriz, qtdVariaveis);
     for(i = 0; i < qtdVariaveis ; i++)
     {
         for(j = 0; j < qtdVariaveis; j++)
         {
-             for(l = 0; l < qtdVariaveis; l++)
+             for(k = 0; k < qtdVariaveis; k++)
              {
-                 *(*(matrizAux+j)+l) = *(*(matriz+j)+l);
+                 *(*(matrizAux+j)+k) = *(*(matriz+j)+k);
              }
         }
 
@@ -145,13 +140,10 @@ void resolverSistema()
         {
             *(*(matrizAux+k)+i) = *(*(matriz+k)+(qtdVariaveis));
         }
-        double detMatrizAux = determinante(matrizAux, qtdVariaveis);
-        double result       = detMatrizAux/det;
+        double cofator = determinante(matrizAux, qtdVariaveis);
+        double result  = cofator/det;
         printf("%.2lf, ", result);
-
-
     }
-
 }
 
 char* processarNumero(char* c)
@@ -159,7 +151,7 @@ char* processarNumero(char* c)
 
 }
 
-double ehSinal(char* c)
+double ehSinal(char* c)//Identifica se o número é negativo ou positivo
 {
     if (c == "-")
         return -1;
@@ -170,11 +162,9 @@ double ehSinal(char* c)
     return 1;
 }
 
-void exec(double** matrizExex)
+void exec(double** matrizExex)//Printa a matriz
 {
-    int i;
-    int j;
-    int k;
+    int i,j;
 
     for(i = 0; i < qtdVariaveis; i++)
     {
@@ -184,6 +174,4 @@ void exec(double** matrizExex)
        }
        printf("\n\n");
     }
-
-
 }
