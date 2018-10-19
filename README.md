@@ -13,6 +13,7 @@ Programas utilizados:
 Github,
 CodeBlocks,
 Sublime Text,
-Brackets.
+Brackets,
+Google Chrome.
 
 -----------------------------------------------------
