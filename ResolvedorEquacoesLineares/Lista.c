@@ -84,26 +84,3 @@ void printeLista(Lista lis)
         atual = atual->prox;
     }
 }
-
-void main()
-{
-    Lista lis;
-    lis.inicio = NULL;
-
-    insira(&lis, "x");
-
-    insira(&lis, "y");
-
-    insira(&lis, "z");
-
-    insiraValor(&lis, "3", 0);
-
-    insiraValor(&lis, "7", 1);
-
-    insiraValor(&lis, "17", 2);
-
-    insiraValor(&lis, "2", 1);
-
-    printeLista(lis);
-}
-
