@@ -54,7 +54,7 @@ void lerArquivo(char* a)
             for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
-                *(*(matriz+i)+j ) = sinal*((double)c[0] - '0');
+                *(*(matriz+i)+j ) = sinal*(processarNumero(c));
 
                 fscanf (file, "%s", c);
                     if (strcmp(c,"-") == 0)
@@ -75,6 +75,24 @@ void lerArquivo(char* a)
     }
 //matriz [1][1]
 //*(*(matriz+1)+1)
+}
+
+double processarNumero(char* c)
+{
+    int i;
+    double ret;
+    char* gambi = "";
+    int tamanho = strlen(c);
+
+    for (i = 0; i < tamanho-1; i++)
+    {
+        strcat(gambi, (char*)c[i]);
+    }
+
+    sscanf(gambi, "%lf", &ret);
+
+    return ret;
+
 }
 
 double determinante(double** matriz, int ordem) {
@@ -146,12 +164,16 @@ void resolverSistema() // Resolve o sistema utilizando o metodo de cramer
     }
 }
 
+<<<<<<< HEAD
 char* processarNumero(char* c)
 {
 
 }
 
 double ehSinal(char* c)//Identifica se o número é negativo ou positivo
+=======
+double ehSinal(char* c)
+>>>>>>> 8d1fa00397dfcbebe7b4007a9abfd2022645cd40
 {
     if (c == "-")
         return -1;
