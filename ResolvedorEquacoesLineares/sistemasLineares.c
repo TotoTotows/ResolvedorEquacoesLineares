@@ -89,7 +89,7 @@ void lerArquivo(char* a)
                     }
             }
             fscanf (file, "%s", c);
-            matriz[i][qtdVariaveis] = (double)atoi(c);
+            sscanf(c, "%lf", &matriz[i][qtdVariaveis]);
         }
         fclose(file);
     }
