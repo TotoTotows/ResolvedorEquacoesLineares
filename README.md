@@ -3,7 +3,7 @@ PROJETO DE PRÁTICA PROFISSIONAL 3 (Profa. Márcia)
 -----------------------------------------------------
 
 Feito por:
-Henrique Soares Toto - 17099
+Henrique Toto - 17099
 Vinícius de Oliveira - 17078
 (2º PD)
 
