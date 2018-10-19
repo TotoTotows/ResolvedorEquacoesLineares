@@ -30,6 +30,7 @@ void main()
     scanf("%s", nomeArquivo);
 
     lerArquivo(nomeArquivo);
+    exec(matriz);
 
     resolverSistema();
 
@@ -69,6 +70,8 @@ void lerArquivo(char* a)
 		//Coloca os valores das equacoes na matriz
         for (i = 0; i < qtdVariaveis; i++)
         {
+            sinal = 1;
+
             for (j = 0; j < qtdVariaveis; j++)
             {
                 fscanf (file, "%s", c);
@@ -181,7 +184,7 @@ void exec(double** matrizExex)//Printa a matriz
 
     for(i = 0; i < qtdVariaveis; i++)
     {
-       for(j = 0; j < qtdVariaveis; j++)
+       for(j = 0; j <= qtdVariaveis; j++)
        {
             printf("%.2f ", *(*(matrizExex+i)+j));
        }
