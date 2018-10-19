@@ -10,9 +10,9 @@ Vinícius de Oliveira - 17078
 -----------------------------------------------------
 
 Programas utilizados:
-Github
-CodeBlocks
-Sublime Text
-Brackets
+Github,
+CodeBlocks,
+Sublime Text,
+Brackets.
 
 -----------------------------------------------------
