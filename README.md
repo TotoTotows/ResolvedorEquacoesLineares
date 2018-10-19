@@ -1,4 +1,4 @@
-PROJETO DE PRÁTICA PROFISSIONAL 3 (Profa. Márcia)
+PROJETO DE TOPICOS DE ORIENTAÇÃO A OBJETOS (Prof. André Malígno)
 
 -----------------------------------------------------
 
