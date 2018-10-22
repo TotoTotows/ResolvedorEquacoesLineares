@@ -1,4 +1,0 @@
-O que falta fazer?
-
- - Alinhar textos (void resolverSistema())
- - Deixar vinicius fazer algo
