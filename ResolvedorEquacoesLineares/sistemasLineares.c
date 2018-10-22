@@ -6,7 +6,6 @@
     int qtdVariaveis;
     double** matriz;
     double** matrizAux;
-//    Lista lis;
 
 void main()
 {
